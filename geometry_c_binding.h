@@ -16,7 +16,7 @@ struct GeometryProps {
 };
 
 EXTERNC void * initialize_constant_mean_curvature_surface(double contact_angle, double neck_filling_angle, double r_part);
-EXTERNC void delete_constant_mean_curvature_surface(void * constant_mean_curvature_surface);
+EXTERNC void delete_constant_mean_curvature_surface(void ** constant_mean_curvature_surface);
 EXTERNC GeometryProps get_liquid_props(void * constant_mean_curvature_surface, double condensate_volume);
 EXTERNC double get_max_liquid_volume(void * constant_mean_curvature_surface);
 EXTERNC double get_filling_angle(void * constant_mean_curvature_surface, double condensate_volume);

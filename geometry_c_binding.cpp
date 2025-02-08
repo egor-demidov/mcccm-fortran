@@ -13,8 +13,9 @@ void * initialize_constant_mean_curvature_surface(double contact_angle, double n
     return new geometry_interfaces::ConstantMeanCurvatureSurface(contact_angle, neck_filling_angle, r_part);
 }
 
-void delete_constant_mean_curvature_surface(void * constant_mean_curvature_surface) {
-    delete to_geom_ptr(constant_mean_curvature_surface);
+void delete_constant_mean_curvature_surface(void ** constant_mean_curvature_surface) {
+    delete to_geom_ptr(*constant_mean_curvature_surface);
+    *constant_mean_curvature_surface = nullptr;
 }
 
 GeometryProps get_liquid_props(void * constant_mean_curvature_surface, double condensate_volume) {
