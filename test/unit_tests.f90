@@ -8,7 +8,7 @@ program main
     implicit none
 
     real(c_double) :: PI
-    real(c_double) :: r_part, contact_angle, neck_filling_angle, neck_volume
+    real(c_double) :: r_part, contact_angle, neck_filling_angle, neck_volume, max_volume
     real(c_double) :: liquid_volume, target_area, target_kappa, condensate_volume, filling_angle, target_filling_angle
     type(c_ptr) :: surface_ptr
     type(geometry_props) :: liquid_props
@@ -29,10 +29,12 @@ program main
 
     liquid_props = get_liquid_props(surface_ptr, condensate_volume)
     filling_angle = get_filling_angle(surface_ptr, condensate_volume)
+    max_volume = get_max_liquid_volume(surface_ptr)
 
     print *, "Area", target_area, liquid_props%area
     print *, "Curvature", target_kappa, liquid_props%kappa
     print *, "Filling angle", target_filling_angle, filling_angle
+    print *, "Max volume", liquid_volume, max_volume
 
     call delete_constant_mean_curvature_surface(surface_ptr)
 

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required(VERSION 3.28)
 project(mcccm_fortran LANGUAGES Fortran C CXX)
 
 set(AUX_SOURCES
