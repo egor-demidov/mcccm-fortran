@@ -12,7 +12,9 @@ g++ -c ../geometry.cpp -o geometry_cxx.o    # custom object file name to prevent
 g++ -c ../generated_geometry.cpp
 g++ -c ../geometry_c_binding.cpp
 # Link the object files into an executable (-lgfortran is required to link the Fortran standard library)
-g++ *.o -lgfortran -o main
+#g++ *.o -lgfortran -o main
+# Alternatively, use gfortran (-lstdc++ is required to link the C++ standard library)
+gfortran *.o -lstdc++ -o main
 
 # Return to source directory
 cd ..
