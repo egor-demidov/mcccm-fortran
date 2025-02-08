@@ -5,7 +5,18 @@
 #include "geometry.h"
 #include "geometry_c_binding.h"
 
+class DeletedSurfaceObject : public std::exception {
+public:
+    [[nodiscard]]
+    const char * what() const noexcept override {
+        return "Attempting to use a deleted constant mean curvature surface object";
+    }
+};
+
 inline geometry_interfaces::ConstantMeanCurvatureSurface * to_geom_ptr(void * void_ptr) {
+    if (void_ptr == nullptr)
+        throw DeletedSurfaceObject();
+
     return static_cast<geometry_interfaces::ConstantMeanCurvatureSurface *>(void_ptr);
 }
 

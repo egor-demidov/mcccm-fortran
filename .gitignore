@@ -5,3 +5,4 @@
 !*.h
 !*.f90
 !.gitignore
+!test/
