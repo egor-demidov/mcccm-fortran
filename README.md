@@ -9,6 +9,8 @@ meniscus as a function of condensate volume.
 
 The Fortran module `geometry` defines the following functions:
 
+---
+
 ### initialize_constant_mean_curvature_surface()
 
 Function; Allocates and initializes a surface object on the heap
@@ -16,12 +18,14 @@ Function; Allocates and initializes a surface object on the heap
 #### Arguments
 
 - `c_double` - contact angle, deg
-- `c_double` - neck filling angle, deg
+- `c_double` - carbon neck filling angle, deg
 - `c_double` - primary particle radius, m
 
 #### Return value
 
 - `c_ptr` - pointer to the surface object
+
+---
 
 ### delete_constant_mean_curvature_surface()
 
@@ -34,18 +38,22 @@ Subroutine; Deletes the surface object (memory is freed) and sets the pointer to
 
 - `c_ptr` - pointer to the surface object
 
+---
+
 ### get_liquid_props()
 
 Function; Returns a geometry_props structure (with surface area and curvature)
 
 #### Arguments
 
-- `c_ptr` - pointer to the surface objet
+- `c_ptr` - pointer to the surface object
 - `c_double` - total volume of coating in the gap, m^3
 
 #### Return value
 
 - `geometry_props` - structure with area and curvature
+
+---
 
 ### get_max_liquid_volume()
 
@@ -58,6 +66,8 @@ Function; Returns the maximum liquid volume that can be accommodated by the geom
 #### Return value
 
 - `c_double` - maximum liquid volume, m^3
+
+---
 
 ### get_filling_angle()
 
@@ -72,6 +82,8 @@ Function; Returns the filling angle as a function of coating volume
 
 - `c_double` - filling angle, deg
 
+---
+
 ### get_neck_volume()
 
 Function; Returns the volume of the neck
@@ -84,6 +96,8 @@ Function; Returns the volume of the neck
 
 - `c_double` - neck volume, m^3
 
+---
+
 ### get_r_part()
 
 Function; Returns the primary particle radius
@@ -95,6 +109,8 @@ Function; Returns the primary particle radius
 #### Return value
 
 - `c_double` - primary particle radius, m
+
+---
 
 ## Example program
 
