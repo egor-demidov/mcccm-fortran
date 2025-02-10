@@ -25,7 +25,7 @@ program main
     ! Initialize the constant mean curvature surface object
     constant_mean_curvature_surface = initialize_constant_mean_curvature_surface(contact_angle, neck_filling_angle, r_part)
 
-    ! The simulation loop that uses the geometry model will go here...
+    ! The simulation loop that uses the geometry model starts here...
 
     ! Compute surface area and curvature as a function of condensate volume
     props = get_liquid_props(constant_mean_curvature_surface, condensate_volume)
@@ -34,7 +34,7 @@ program main
 
     print *, 'Surface area:', props%area, 'Curvature:', props%kappa, 'Max volume:', max_coating_volume
 
-    ! The simulation loop has completed and the geometry model is no longer needed. Clean up...
+    ! The simulation loop ends here and the geometry model is no longer needed. Clean up...
 
     ! Delete the constant mean curvature surface object when it's no longer needed
     ! IMPORTANT to avoid memory leaks
